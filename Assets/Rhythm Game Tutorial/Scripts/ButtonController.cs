@@ -4,12 +4,11 @@ using UnityEngine;
 
 public class ButtonController : MonoBehaviour
 {
-    [SerializeField] SpriteRenderer spriteRenderer;
     [SerializeField] Sprite defaultImage;
     [SerializeField] Sprite pressedImage;
-
     [SerializeField] KeyCode keyToPress;
 
+    SpriteRenderer spriteRenderer;
 
     void Start()
     {
@@ -20,7 +19,12 @@ public class ButtonController : MonoBehaviour
     {
         if(Input.GetKeyDown(keyToPress))
         {
+            spriteRenderer.sprite = pressedImage;
+        }
 
+        if (Input.GetKeyUp(keyToPress))
+        {
+            spriteRenderer.sprite = defaultImage;
         }
     }
 }
