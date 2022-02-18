@@ -136,3 +136,4 @@ Received Import Request.
 Start importing Assets/Rhythm Game Tutorial using Guid(cb776073f4c3a414cbe09a5890fb6d67) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a38c8e43ebf0c4dbb321bf36c96ad32d') in 0.013932 seconds 
   Import took 0.017121 seconds .
 
+AssetImportWorkerClient::OnTransportError - code=2 error=End of file
