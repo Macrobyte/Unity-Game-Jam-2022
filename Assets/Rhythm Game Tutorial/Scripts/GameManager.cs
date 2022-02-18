@@ -4,19 +4,26 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    public static GameManager Instance { get; private set; }
+
     [SerializeField] AudioSource music;
     [SerializeField] bool startPlaying;
     [SerializeField] BeatScroller beatScroller;
 
+    private void Awake()
+    {
+        Instance = this;
+    }
+
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(!startPlaying)
+        if (!startPlaying)
         {
             if (Input.anyKeyDown)
             {
