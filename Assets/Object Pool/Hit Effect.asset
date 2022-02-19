@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Hit Effect
   m_EditorClassIdentifier: 
   prefab: {fileID: 9092334032675239379, guid: 4ff6c0123e57ba04eaff8c2ee1c5b27e, type: 3}
-  initialScale: {x: 1, y: 1, z: 1}
+  initialScale: {x: 2, y: 2, z: 2}

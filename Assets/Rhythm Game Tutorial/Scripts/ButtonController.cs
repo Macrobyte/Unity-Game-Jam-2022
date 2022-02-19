@@ -47,7 +47,7 @@ public class ButtonController : MonoBehaviour
         if (collision.GetComponent<NoteObject>())
         {
             canBePressed = false;
-            if (currentNote.gameObject.activeInHierarchy) currentNote.NoteMissed();
+            if (!currentNote.Hit()) currentNote.NoteMissed();
             currentNote = null;
         }
     }

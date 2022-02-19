@@ -7,6 +7,7 @@ public class NoteSpawner : MonoBehaviour
     [SerializeField] ObjectPool[] notePoolers;
     [SerializeField] float[] xSpawnPos;
     [SerializeField] Vector2 timeRange;
+    [SerializeField] bool hasStarted;
 
     float timer = 0;
 
@@ -22,6 +23,8 @@ public class NoteSpawner : MonoBehaviour
 
     void Update()
     {
+        if (!hasStarted) return;
+
         if (timer <= 0)
         {
             Spawn();
@@ -33,9 +36,10 @@ public class NoteSpawner : MonoBehaviour
     public void Spawn()
     {
         Vector3 pos = new Vector3(RandomSpawnPos(), ScreenBoundary.Instance.screenBounds.y, 0);
-
         GameObject newObject = notePoolers[0].SpawnObject(transform, Quaternion.identity, true);
         newObject.transform.position = pos;
+
+        GameManager.Instance.AddNote();
     }
 
 
@@ -43,4 +47,6 @@ public class NoteSpawner : MonoBehaviour
     {
         return xSpawnPos[Random.Range(0, xSpawnPos.Length)];
     }
+
+    public void ToggleStart(bool newState) => hasStarted = newState;
 }

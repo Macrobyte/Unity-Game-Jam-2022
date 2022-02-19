@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Good Effect
   m_EditorClassIdentifier: 
   prefab: {fileID: 3404040677109932733, guid: 39608dbe98e6d614baf6cd2e4956dc1c, type: 3}
-  initialScale: {x: 1, y: 1, z: 1}
+  initialScale: {x: 2, y: 2, z: 2}

@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Perfect Effect
   m_EditorClassIdentifier: 
   prefab: {fileID: 589319831770412753, guid: eea24aab1f9bce64496ed5013b0c0afa, type: 3}
-  initialScale: {x: 1, y: 1, z: 1}
+  initialScale: {x: 2, y: 2, z: 2}

@@ -4,14 +4,22 @@ using UnityEngine;
 
 public class NoteObject : MonoBehaviour
 {
+    bool hit = false;
     bool controlMovement = true;   
     Rigidbody2D rb;
     Collider2D col;
+    Animator anim;
 
-    private void Start()
+    private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         col = GetComponent<Collider2D>();
+        anim = GetComponent<Animator>();
+    }
+
+    private void OnEnable()
+    {
+        ResetProperties();
     }
 
     private void Update()
@@ -26,7 +34,11 @@ public class NoteObject : MonoBehaviour
 
     public void NoteHit()
     {
-        if( Mathf.Abs(transform.position.y) > 0.25)
+        hit = true;
+
+        controlMovement = false;
+
+        if ( Mathf.Abs(transform.position.y) > 0.25)
         {
             GameManager.Instance.NoteHit(GameManager.Hit.Normal);
             GameManager.Instance.hitEffectPooler.SpawnObject(transform, Quaternion.identity, false);
@@ -41,7 +53,10 @@ public class NoteObject : MonoBehaviour
             GameManager.Instance.NoteHit(GameManager.Hit.Perfect);
             GameManager.Instance.PefectEffectPool.SpawnObject(transform, Quaternion.identity, false);
         }
-        gameObject.SetActive(false);
+
+        anim.SetBool("Suck", true);
+
+        Invoke(nameof(DisableObject), 1.2f);
     }
 
     public void NoteMissed()
@@ -66,4 +81,19 @@ public class NoteObject : MonoBehaviour
             rb.bodyType = RigidbodyType2D.Kinematic;
         }
     }
+
+    public void DisableObject()
+    {
+        gameObject.GetComponent<PooledObject>().ReturnToPool();
+    }
+
+    public void ResetProperties()
+    {
+        hit = false;
+        anim.SetBool("Suck", false);
+        TogglePhysics(false);
+        controlMovement = true;
+    }
+
+    public bool Hit() => hit;
 }

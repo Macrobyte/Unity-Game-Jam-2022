@@ -25,7 +25,7 @@ public class GameManager : MonoBehaviour
     public ObjectPool hitEffectPooler, GoodEffectBool, PefectEffectPool, MissEffectPool;
 
     [Header("Reference")]
-    [SerializeField] BeatScroller beatScroller;
+    [SerializeField] NoteSpawner noteSpawner;
 
     [Header("Scoring")]
     [SerializeField] int score;
@@ -61,7 +61,7 @@ public class GameManager : MonoBehaviour
             if (Input.anyKeyDown)
             {
                 startPlaying = true;
-                beatScroller.ToggleStart(true);
+                noteSpawner.ToggleStart(true);
 
                 music.Play();
             }
@@ -71,6 +71,7 @@ public class GameManager : MonoBehaviour
             if(!music.isPlaying && !gameOver)
             {
                 gameOver = true;
+                noteSpawner.ToggleStart(false);
                 DisplayResultUI();
             }
         }
@@ -152,7 +153,7 @@ public class GameManager : MonoBehaviour
     public void DisplayResultUI()
     {
         int totalHit = normalHits + goodHits + perfectHits;
-        float percentHit = (float)totalHit / (float)totalHit * 100f;
+        float percentHit = (float)totalHit / (float)totalNotes * 100f;
 
         GameUI.Instance.DisplayResult(normalHits,goodHits,perfectHits,missedHits,percentHit, CalculateGrade(percentHit), score);
     }
@@ -186,5 +187,11 @@ public class GameManager : MonoBehaviour
         return rankValue;
     }
 
+    public void AddNote()
+    {
+        totalNotes ++;
+    }
+
     public float FallSpeed() => fallSpeed;
+    public bool GameOver() => gameOver;
 }

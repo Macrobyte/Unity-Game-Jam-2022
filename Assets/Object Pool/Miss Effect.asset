@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Miss Effect
   m_EditorClassIdentifier: 
   prefab: {fileID: 1760848746639792635, guid: 0b7d65e59808b73449fbb230431c256e, type: 3}
-  initialScale: {x: 1, y: 1, z: 1}
+  initialScale: {x: 2, y: 2, z: 2}
