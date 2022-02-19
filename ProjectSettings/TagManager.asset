@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Activator
+  - PoolObjects
   layers:
   - Default
   - TransparentFX
@@ -44,6 +45,9 @@ TagManager:
     locked: 0
   - name: Buttons
     uniqueID: 3021492479
+    locked: 0
+  - name: Vfx
+    uniqueID: 3464104841
     locked: 0
   - name: Arrows
     uniqueID: 2122857325
