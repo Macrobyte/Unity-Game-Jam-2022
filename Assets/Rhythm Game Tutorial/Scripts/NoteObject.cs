@@ -11,14 +11,7 @@ public class NoteObject : MonoBehaviour
     {
         if(Input.GetKeyDown(keyToPress))
         {
-            if(canBePressed)
-            {
-                gameObject.SetActive(false);
-            }
-            else
-            {
-
-            }
+            if(canBePressed) NoteHit();
         }
     }
 
@@ -35,6 +28,37 @@ public class NoteObject : MonoBehaviour
         if (collision.CompareTag("Activator"))
         {
             canBePressed = false;
+            if(gameObject.activeInHierarchy) NoteMissed();
         }
+    }
+
+    public void NoteHit()
+    {
+
+        if( Mathf.Abs(transform.position.y) > 0.25)
+        {
+            Debug.Log("Hit");
+            GameManager.Instance.NoteHit(GameManager.Hit.Normal);
+            GameManager.Instance.hitEffectPooler.SpawnObject(transform, Quaternion.identity, false);
+        }
+        else if (Mathf.Abs(transform.position.y) > 0.05)
+        {
+            Debug.Log("Good Hit");
+            GameManager.Instance.NoteHit(GameManager.Hit.Good);
+            GameManager.Instance.GoodEffectBool.SpawnObject(transform, Quaternion.identity, false);
+        }
+        else
+        {
+            Debug.Log("Perfect Hit");
+            GameManager.Instance.NoteHit(GameManager.Hit.Perfect);
+            GameManager.Instance.PefectEffectPool.SpawnObject(transform, Quaternion.identity, false);
+        }
+        gameObject.SetActive(false);
+    }
+
+    public void NoteMissed()
+    {
+        GameManager.Instance.NoteMissed();
+        GameManager.Instance.MissEffectPool.SpawnObject(transform, Quaternion.identity, false);
     }
 }
