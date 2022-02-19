@@ -853,12 +853,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0
+  m_MatchWidthOrHeight: 0.5
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
@@ -1386,9 +1386,9 @@ MonoBehaviour:
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
-    m_HighlightedSprite: {fileID: 21300000, guid: d8433ed9669ea114c96181330083aa62, type: 3}
-    m_PressedSprite: {fileID: 21300000, guid: cba2b7c1f714a144c8cae36a9b5626c4, type: 3}
-    m_SelectedSprite: {fileID: 21300000, guid: d8433ed9669ea114c96181330083aa62, type: 3}
+    m_HighlightedSprite: {fileID: 21300000, guid: b9f1e422172bd0a44bbf8104e73ddaf6, type: 3}
+    m_PressedSprite: {fileID: 21300000, guid: f1b88a49fd06dee4a96ac085d2cd3417, type: 3}
+    m_SelectedSprite: {fileID: 21300000, guid: b9f1e422172bd0a44bbf8104e73ddaf6, type: 3}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
