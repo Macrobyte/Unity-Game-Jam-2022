@@ -4,52 +4,40 @@ using UnityEngine;
 
 public class NoteObject : MonoBehaviour
 {
-    [SerializeField] KeyCode keyToPress;
-    [SerializeField] bool canBePressed;
+    bool controlMovement = true;   
+    Rigidbody2D rb;
+    Collider2D col;
+
+    private void Start()
+    {
+        rb = GetComponent<Rigidbody2D>();
+        col = GetComponent<Collider2D>();
+    }
 
     private void Update()
     {
-        if(Input.GetKeyDown(keyToPress))
-        {
-            if(canBePressed) NoteHit();
-        }
+        if (controlMovement) Move();
     }
 
-    public void OnTriggerEnter2D(Collider2D collision)
+    public void Move()
     {
-        if(collision.CompareTag("Activator"))
-        {
-            canBePressed = true;
-        }
-    }
-
-    public void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.CompareTag("Activator"))
-        {
-            canBePressed = false;
-            if(gameObject.activeInHierarchy) NoteMissed();
-        }
+        transform.Translate(-transform.up * GameManager.Instance.FallSpeed() * Time.deltaTime);
     }
 
     public void NoteHit()
     {
-
         if( Mathf.Abs(transform.position.y) > 0.25)
         {
-            Debug.Log("Hit");
             GameManager.Instance.NoteHit(GameManager.Hit.Normal);
             GameManager.Instance.hitEffectPooler.SpawnObject(transform, Quaternion.identity, false);
         }
         else if (Mathf.Abs(transform.position.y) > 0.05)
         {
-            Debug.Log("Good Hit");
             GameManager.Instance.NoteHit(GameManager.Hit.Good);
             GameManager.Instance.GoodEffectBool.SpawnObject(transform, Quaternion.identity, false);
         }
         else
         {
-            Debug.Log("Perfect Hit");
             GameManager.Instance.NoteHit(GameManager.Hit.Perfect);
             GameManager.Instance.PefectEffectPool.SpawnObject(transform, Quaternion.identity, false);
         }
@@ -60,5 +48,22 @@ public class NoteObject : MonoBehaviour
     {
         GameManager.Instance.NoteMissed();
         GameManager.Instance.MissEffectPool.SpawnObject(transform, Quaternion.identity, false);
+
+        TogglePhysics(true);
+    }
+
+    public void TogglePhysics(bool state)
+    {
+        if (state == true)
+        {
+            controlMovement = false;
+            col.isTrigger = false;
+            rb.bodyType = RigidbodyType2D.Dynamic;
+        }
+        else
+        {
+            col.isTrigger = true;
+            rb.bodyType = RigidbodyType2D.Kinematic;
+        }
     }
 }

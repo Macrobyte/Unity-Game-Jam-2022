@@ -8,6 +8,9 @@ public class ButtonController : MonoBehaviour
     [SerializeField] Sprite pressedImage;
     [SerializeField] KeyCode keyToPress;
 
+    bool canBePressed;
+    NoteObject currentNote;
+
     SpriteRenderer spriteRenderer;
 
     void Start()
@@ -20,11 +23,32 @@ public class ButtonController : MonoBehaviour
         if(Input.GetKeyDown(keyToPress))
         {
             spriteRenderer.sprite = pressedImage;
+
+            if (canBePressed) currentNote.NoteHit();
         }
 
         if (Input.GetKeyUp(keyToPress))
         {
             spriteRenderer.sprite = defaultImage;
+        }
+    }
+
+    public void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.GetComponent<NoteObject>())
+        {
+            currentNote = collision.GetComponent<NoteObject>();
+            canBePressed = true;
+        }
+    }
+
+    public void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.GetComponent<NoteObject>())
+        {
+            canBePressed = false;
+            if (currentNote.gameObject.activeInHierarchy) currentNote.NoteMissed();
+            currentNote = null;
         }
     }
 }

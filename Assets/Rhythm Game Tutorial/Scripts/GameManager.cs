@@ -8,8 +8,10 @@ public class GameManager : MonoBehaviour
 
     public static GameManager Instance { get; private set; }
 
+    [Header("Gameplay")]
     [SerializeField] AudioSource music;
     [SerializeField] bool startPlaying;
+    [SerializeField] float fallSpeed;
 
     [Header("Scores")]
     [SerializeField] int scorePerNote;
@@ -183,4 +185,6 @@ public class GameManager : MonoBehaviour
 
         return rankValue;
     }
+
+    public float FallSpeed() => fallSpeed;
 }
