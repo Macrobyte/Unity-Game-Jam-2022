@@ -55,3 +55,6 @@ TagManager:
   - name: Arrows
     uniqueID: 2122857325
     locked: 0
+  - name: OverLay
+    uniqueID: 1526956759
+    locked: 0

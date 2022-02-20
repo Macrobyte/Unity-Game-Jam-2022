@@ -7,8 +7,14 @@ public class NoteSpawner : MonoBehaviour
     [SerializeField] ObjectPool[] notePoolers;
     [SerializeField] float[] xSpawnPos;
     [SerializeField] Vector2 timeRange;
-    [SerializeField] bool hasStarted;
 
+    [Header("Spawner")]
+    [SerializeField] int maxAmountToSpawn;
+    [SerializeField] int amountToSpawn;
+
+
+    bool hasStarted;
+    float lastSpawnPoint;
     float timer = 0;
 
     public int TimeLimit
@@ -33,19 +39,36 @@ public class NoteSpawner : MonoBehaviour
         else timer -= Time.deltaTime;
     }
 
-    public void Spawn()
+    public void RandomAmount()
     {
-        Vector3 pos = new Vector3(RandomSpawnPos(), ScreenBoundary.Instance.screenBounds.y, 0);
-        GameObject newObject = notePoolers[0].SpawnObject(transform, Quaternion.identity, true);
-        newObject.transform.position = pos;
-
-        GameManager.Instance.AddNote();
+        amountToSpawn = Random.Range(1, maxAmountToSpawn + 1);
     }
 
+    public void Spawn()
+    {
+        RandomAmount();
+
+        for (int i = 0; i < amountToSpawn; i++)
+        {
+            Vector3 pos = new Vector3(RandomSpawnPos(), ScreenBoundary.Instance.screenBounds.y, 0);
+            GameObject newObject = notePoolers[0].SpawnObject(transform, Quaternion.identity, true);
+            newObject.transform.position = pos;
+
+            GameManager.Instance.AddNote();
+        }
+    }
 
     public float RandomSpawnPos()
     {
-        return xSpawnPos[Random.Range(0, xSpawnPos.Length)];
+        float randomSpawn = xSpawnPos[Random.Range(0, xSpawnPos.Length)];
+
+        while (lastSpawnPoint == randomSpawn)
+        {
+            randomSpawn = xSpawnPos[Random.Range(0, xSpawnPos.Length)];
+        }
+
+        lastSpawnPoint = randomSpawn;
+        return lastSpawnPoint;
     }
 
     public void ToggleStart(bool newState) => hasStarted = newState;

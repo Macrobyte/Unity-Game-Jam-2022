@@ -56,7 +56,7 @@ public class NoteObject : MonoBehaviour
 
         anim.SetBool("Suck", true);
 
-        Invoke(nameof(DisableObject), 1.2f);
+        Invoke(nameof(DisableObject), 1f);
     }
 
     public void NoteMissed()

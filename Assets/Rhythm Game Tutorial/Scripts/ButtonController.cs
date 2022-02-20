@@ -24,7 +24,12 @@ public class ButtonController : MonoBehaviour
         {
             spriteRenderer.sprite = pressedImage;
 
-            if (canBePressed) currentNote.NoteHit();
+            if (canBePressed)
+            {
+                canBePressed = false;
+                currentNote.NoteHit();
+                currentNote = null;
+            } 
         }
 
         if (Input.GetKeyUp(keyToPress))
@@ -44,6 +49,8 @@ public class ButtonController : MonoBehaviour
 
     public void OnTriggerExit2D(Collider2D collision)
     {
+        if (currentNote == null) return;
+
         if (collision.GetComponent<NoteObject>())
         {
             canBePressed = false;
