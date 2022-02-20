@@ -123,6 +123,7 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+<<<<<<< HEAD
 --- !u!1 &5840579
 GameObject:
   m_ObjectHideFlags: 0
@@ -454,6 +455,9 @@ CanvasRenderer:
   m_GameObject: {fileID: 181718863}
   m_CullTransparentMesh: 1
 --- !u!1 &184302010
+=======
+--- !u!1 &324689944
+>>>>>>> parent of f287f0a (Finished Options Menu)
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1807,6 +1811,7 @@ RectTransform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< HEAD
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
@@ -1892,6 +1897,9 @@ CanvasRenderer:
   m_GameObject: {fileID: 1135611096}
   m_CullTransparentMesh: 1
 --- !u!1 &1252009700
+=======
+--- !u!1 &640117843
+>>>>>>> parent of f287f0a (Finished Options Menu)
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2406,13 +2414,21 @@ GameObject:
   - component: {fileID: 1372842266}
   - component: {fileID: 1372842265}
   m_Layer: 5
+<<<<<<< HEAD
   m_Name: Checkmark
+=======
+  m_Name: Menu Backdrop
+>>>>>>> parent of f287f0a (Finished Options Menu)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+<<<<<<< HEAD
 --- !u!224 &1372842264
+=======
+--- !u!224 &796015902
+>>>>>>> parent of f287f0a (Finished Options Menu)
 RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2542,9 +2558,29 @@ CanvasRenderer:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< HEAD
   m_GameObject: {fileID: 1397245369}
   m_CullTransparentMesh: 1
 --- !u!1 &1413630488
+=======
+  m_GameObject: {fileID: 1131403023}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0, y: 0, z: 0}
+  m_Children:
+  - {fileID: 1578479258}
+  - {fileID: 796015902}
+  - {fileID: 1789570147}
+  m_Father: {fileID: 0}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0, y: 0}
+--- !u!1 &1252009700
+>>>>>>> parent of f287f0a (Finished Options Menu)
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2617,6 +2653,7 @@ CanvasRenderer:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< HEAD
   m_GameObject: {fileID: 1413630488}
   m_CullTransparentMesh: 1
 --- !u!1 &1442756365
@@ -2695,6 +2732,99 @@ CanvasRenderer:
   m_GameObject: {fileID: 1442756365}
   m_CullTransparentMesh: 1
 --- !u!1 &1530806119
+=======
+  m_GameObject: {fileID: 1252009700}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 3d29cd51d50f16448a7dfd9560bb4fc7, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 0.7
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!1 &1321750489
+>>>>>>> parent of f287f0a (Finished Options Menu)
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3638,11 +3768,19 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+<<<<<<< HEAD
   - {fileID: 1397245370}
   - {fileID: 823259963}
   - {fileID: 1352447338}
   m_Father: {fileID: 637579858}
   m_RootOrder: 3
+=======
+  - {fileID: 640117844}
+  - {fileID: 1252009701}
+  - {fileID: 1780292637}
+  m_Father: {fileID: 1131403027}
+  m_RootOrder: 2
+>>>>>>> parent of f287f0a (Finished Options Menu)
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -3986,6 +4124,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea4d62596b0937341a5de727b0aaac03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< HEAD
 --- !u!1 &2144130679
 GameObject:
   m_ObjectHideFlags: 0
@@ -4078,3 +4217,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioMixer: {fileID: 24100000, guid: 9a2fc820d6cb2034eab1f9db77d3c8fc, type: 2}
   resolutionDropdown: {fileID: 1936014191}
+=======
+>>>>>>> parent of f287f0a (Finished Options Menu)
