@@ -10,6 +10,11 @@ public class MainMenu : MonoBehaviour
         Debug.Log("Play Selected");
     }
 
+    public void CreditsButton()
+    {
+        Debug.Log("Credits Selected");
+    }
+
     public void OptionsButton()
     {
         Debug.Log("Options Selected");
