@@ -12,7 +12,6 @@ public class GameManager : MonoBehaviour
     [Header("Gameplay")]
     [SerializeField] AudioSource music;
     [SerializeField] bool startPlaying;
-    [SerializeField] float fallSpeed;
 
     [Header("Scores")]
     [SerializeField] int scorePerNote;
@@ -167,6 +166,8 @@ public class GameManager : MonoBehaviour
         float percentHit = (float)totalHit / (float)totalNotes * 100f;
 
         GameUI.Instance.DisplayResult(normalHits,goodHits,perfectHits,missedHits,percentHit, CalculateGrade(percentHit), score);
+
+        PlayerData.Instance.SaveData(score, totalHit);
     }
 
 
@@ -227,6 +228,5 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(scene);
     }
 
-    public float FallSpeed() => fallSpeed;
     public bool IsGameOver() => gameOver;
 }

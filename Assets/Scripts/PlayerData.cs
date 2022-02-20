@@ -22,8 +22,12 @@ public class PlayerData : MonoBehaviour
             Destroy(gameObject);
     }
 
-    public void SaveData()
+    public void SaveData(int newScore, int totalWate)
     {
+        if (newScore > playerData.higestScore) playerData.higestScore = newScore;
+        if (totalWate > playerData.highestWasteCollected) playerData.highestWasteCollected = totalWate;
+        playerData.lastScore = newScore;
+
         JsonSaveSystem.Save(saveName, playerData);
     }
 

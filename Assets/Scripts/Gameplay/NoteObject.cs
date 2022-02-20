@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class NoteObject : MonoBehaviour
 {
+    float speed;
     bool hit = false;
     bool controlMovement = true;   
     Rigidbody2D rb;
@@ -27,9 +28,15 @@ public class NoteObject : MonoBehaviour
         if (controlMovement && !GameManager.Instance.IsGameOver()) Move();
     }
 
+    public void SetUp(Vector3 startPos, float newSpeed)
+    {
+        gameObject.transform.position = startPos;
+        speed = newSpeed;
+    }
+
     public void Move()
     {
-        transform.Translate(-transform.up * GameManager.Instance.FallSpeed() * Time.deltaTime);
+        transform.Translate(-transform.up * speed * Time.deltaTime);
     }
 
     public void NoteHit()

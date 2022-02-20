@@ -5,13 +5,15 @@ using UnityEngine;
 public class NoteSpawner : MonoBehaviour
 {
     [SerializeField] ObjectPool[] notePoolers;
+
+    [SerializeField] Difficulty[] difficulties;
+
     [SerializeField] float[] xSpawnPos;
-    [SerializeField] Vector2 timeRange;
 
     [Header("Spawner")]
-    [SerializeField] int maxAmountToSpawn;
     [SerializeField] int amountToSpawn;
 
+    [SerializeField] Difficulty currentDifficulty;
 
     bool hasStarted;
     float lastSpawnPoint;
@@ -19,11 +21,12 @@ public class NoteSpawner : MonoBehaviour
 
     public int TimeLimit
     {
-        get => (int)Random.Range(timeRange.x, timeRange.y);
+        get => (int)Random.Range(currentDifficulty.spawnTimeRange.x, currentDifficulty.spawnTimeRange.y);
     }
 
     public void Start()
     {
+        currentDifficulty = difficulties[0];
         timer = TimeLimit;
     }
 
@@ -41,7 +44,7 @@ public class NoteSpawner : MonoBehaviour
 
     public void RandomAmount()
     {
-        amountToSpawn = Random.Range(1, maxAmountToSpawn + 1);
+        amountToSpawn = Random.Range(1, currentDifficulty.maxWaste + 1);
     }
 
     public void Spawn()
@@ -52,6 +55,7 @@ public class NoteSpawner : MonoBehaviour
         {
             Vector3 pos = new Vector3(RandomSpawnPos(), ScreenBoundary.Instance.screenBounds.y, 0);
             GameObject newObject = RandomWastePool().SpawnObject(transform, Quaternion.identity, true);
+            newObject.GetComponent<NoteObject>().SetUp(pos, currentDifficulty.wasteSpeed);
             newObject.transform.position = pos;
         }
     }
@@ -76,8 +80,8 @@ public class NoteSpawner : MonoBehaviour
 
     public void ToggleStart(bool newState) => hasStarted = newState;
 
-    public void MaxDifficulty()
+    public void ChangeDifficulty(Difficulty newDifficulty)
     {
-        maxAmountToSpawn++;
+        currentDifficulty = newDifficulty;
     }
 }
