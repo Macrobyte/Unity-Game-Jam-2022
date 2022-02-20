@@ -75,4 +75,9 @@ public class NoteSpawner : MonoBehaviour
     }
 
     public void ToggleStart(bool newState) => hasStarted = newState;
+
+    public void MaxDifficulty()
+    {
+        maxAmountToSpawn++;
+    }
 }

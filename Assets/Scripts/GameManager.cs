@@ -80,8 +80,8 @@ public class GameManager : MonoBehaviour
 
     public void NoteHit(Hit hit)
     {
+        ScreenShake();
         AddNote();
-
         EvaluiateScore(hit);
 
         if (currentMissClick < maxMissClick)
@@ -93,11 +93,10 @@ public class GameManager : MonoBehaviour
 
     public void NoteMissed()
     {
+        ScreenShake();
         AddNote();
-
         missedHits++;
         ResetMultiplier();
-
         MissClick();
     }
 
@@ -209,6 +208,11 @@ public class GameManager : MonoBehaviour
         currentMissClick--;
         GameUI.Instance.SetMissClickBar((float)currentMissClick / (float)maxMissClick);
         if (currentMissClick <= 0) GameOver();
+    }
+
+    public void ScreenShake()
+    {
+        CinemachineManager.Instance.ShakeCamera(5, .2f);
     }
 
     public void GameOver()
